@@ -54,3 +54,5 @@ To Kill Process Server
   
   -> netstat -ano | findstr
   -> taskkill /F /PID
+
+Some POM Error Delete .m2 subfolders
