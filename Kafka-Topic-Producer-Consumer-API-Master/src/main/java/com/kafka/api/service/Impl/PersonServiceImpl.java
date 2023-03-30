@@ -1,5 +1,7 @@
 package com.kafka.api.service.Impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class PersonServiceImpl implements PersonService{
 	@Override
 	public Person savePerson(Person person) {
 		return personRepository.save(person);
+	}
+
+	@Override
+	public Optional<Person> getPerson(int id) {
+		return personRepository.findById((long) id);
 	}
 
 }

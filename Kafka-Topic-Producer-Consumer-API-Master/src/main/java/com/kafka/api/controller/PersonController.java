@@ -1,9 +1,12 @@
 package com.kafka.api.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,12 @@ public class PersonController {
 	{
 		kafkaTemplateUser.send(TOPIC,person);
 		return personService.savePerson(person);
+	}
+	
+	@GetMapping("getperson/{id}")
+	public Optional<Person> getPerson(@PathVariable int id)
+	{
+		return personService.getPerson(id);
 	}
 	
 	@KafkaListener(topics = "KafkaPerson", groupId = "myGroup", containerFactory = "personConcurrentKafkaListenerContainerFactory")

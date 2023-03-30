@@ -16,6 +16,7 @@ public class Kafka1TopicCreateApplication {
 	@Bean
 	public NewTopic topic() {
 //		TopicBuilder.name("MyTopic").partitions(10).replicas(1).build();
+		System.out.println("-----------------Topic Created-----------------");
 		return TopicBuilder.name("MyTopic").build();
 	}
 
