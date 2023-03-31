@@ -1,0 +1,47 @@
+@startuml
+
+
+skinparam componentStyle uml2
+
+together {
+    package "Viewer" {
+        component [Kafka\nCli] as kafCli
+    }
+
+    package "Producer" {
+        component [Site  Tracking\nTraffice simulator] as traffic
+        component "Aerospike\nJava Client" as asClient
+    }
+}
+
+
+package "Aerospike services" {
+    () "3000" as asSocket
+    component [Aerospike\nEnterprise\nEdition] as asee
+    asSocket - asee
+
+
+    () "8080" as asOutbound
+    component [Aerospike\nOutbound Kafka\nConnector] as asKafka
+    asOutbound - asKafka
+}
+
+package "Kafka and Zookeeper" {
+    () "9092" as kafClient
+    component [Kafka\nCluster] as kafCluster
+    kafClient - kafCluster
+
+    component [Zoo\nKeeper] as zookeeper
+}
+
+asClient <..> asSocket: TCP\nbinary\nprotocol
+traffic -r(0- asClient
+
+asee ..> asOutbound: HTTP(s)
+zookeeper <..> kafCluster
+
+asKafka .r.> kafClient: TCP\nbinary\nprotocol
+
+kafCli <.. kafClient: TCP\nbinary\nprotocol
+
+@enduml

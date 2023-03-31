@@ -1,0 +1,10 @@
+aerospike/data/test.data
+aerospike/log/aerospike.log
+docker-compose-peter.yml
+aerospike/etc/digestlog.log1
+aerospike/etc/features.conf
+traffic-simulator/.settings
+traffic-simulator/target
+test.dat
+digestlog.log1
+features.conf
