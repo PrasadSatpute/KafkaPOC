@@ -56,3 +56,7 @@ To Kill Process Server
   -> taskkill /F /PID
 
 Some POM Error Delete .m2 subfolders
+
+Aerospike Docker CMD
+  -> docker run -d --name aerospike -p 3000-3002:3000-3002 aerospike/aerospike-server
+  -> docker run -ti aerospike/aerospike-tools:latest aql -h  $(docker inspect -f '{{.NetworkSettings.IPAddress }}' aerospike)
