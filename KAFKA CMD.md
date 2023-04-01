@@ -27,7 +27,7 @@ Open CMD
 6-> We have to Create Topic
   Enter Command
       Without Partition
-    -> kafka-topics.bat --create --topic topic-name  --bootstrap-server localhost:9092 
+    -> kafka-topics.bat --create --topic topic-name --bootstrap-server localhost:9092 
       With Partition
     -> kafka-topics.bat --create --topic topic-name --partitions=2 --bootstrap-server localhost:9092
   Describe Topic
