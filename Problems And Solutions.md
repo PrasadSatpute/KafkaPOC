@@ -8,3 +8,7 @@
         public AerospikeDataSettings aerospikeDataSettings() {
           return AerospikeDataSettings.builder().scansEnabled(true).sendKey(true).build();
         }
+
+2.  Constructor with '3' parameters is already defined
+
+    ->  This is Lombok Problem
